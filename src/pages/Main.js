@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Main.css';
 
 import tindev from '../assets/tindev.svg';
@@ -29,6 +30,7 @@ export default function Main({ match }) {
       }
     });
 
+    // Always overwrite with the setStateName function when using a state
     setUsers(users.filter(user => user._id !== id));
   }
 
@@ -40,12 +42,15 @@ export default function Main({ match }) {
       }
     });
 
+    // Always overwrite with the setStateName function when using a state
     setUsers(users.filter(user => user._id !== id));
   }
 
   return(
     <div className="main-container">
-      <img src={tindev} alt="logo" id="tindev-logo" />
+      <Link to="/">
+        <img src={tindev} alt="logo" id="tindev-logo" />
+      </Link>
         {users.length > 0 ? (
           <ul>
             {/* When an arrow function just has a return we can use the () instead of { return () } */}
