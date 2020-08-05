@@ -8,6 +8,8 @@ import api from '../services/api';
 export default function Main({ match }) {
   const [users, setUsers] = useState([]);
 
+  // This useEffect receive 2 params the frist is the function who will be called and the second param is when it will call the function
+  // Example when the match.params.id be changed the arrow function in the first param will be executed
   useEffect(() => {
     async function loadUsers() {
       const response = await api.get('/devs', {
